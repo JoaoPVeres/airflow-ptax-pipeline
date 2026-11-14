@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM silver.vw_ptax_validacao WHERE motivo_invalido IS NOT NULL;
