@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import json
 
-def caminho_arquivo(base_path: str, moeda: str, data: date) -> Path:
+def caminho_arquivo(base_path: str, moeda: str, data: date, dataset: str = "ptax") -> Path:
     """Monta <base_path>/ptax/dt=AAAA-MM-DD/<MOEDA>.json (sem tocar no disco)."""
     moeda = moeda.strip().upper()
 
@@ -12,12 +12,12 @@ def caminho_arquivo(base_path: str, moeda: str, data: date) -> Path:
     if "/" in moeda or "\\" in moeda or ".." in moeda:
         raise ValueError(f"Moeda invalida: {moeda!r}")
 
-    return Path(base_path) / "ptax" / f"dt={data:%Y-%m-%d}" / f"{moeda}.json"
+    return Path(base_path) / dataset / f"dt={data:%Y-%m-%d}" / f"{moeda}.json"
 
 
-def salvar_json(dados: dict, base_path: str, moeda: str, data: date) -> str:
+def salvar_json(dados: dict, base_path: str, moeda: str, data: date, dataset: str = "ptax") -> str:
     """Grava o JSON de forma atômica e devolve o caminho (str) do arquivo."""
-    destino = caminho_arquivo(base_path, moeda, data)
+    destino = caminho_arquivo(base_path, moeda, data, dataset)
     destino.parent.mkdir(parents=True, exist_ok=True)
 
     temporario = destino.with_name(destino.name + ".tmp")

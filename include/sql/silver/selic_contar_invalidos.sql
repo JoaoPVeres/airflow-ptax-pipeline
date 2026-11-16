@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM silver.vw_selic_validacao WHERE motivo_invalido IS NOT NULL;
