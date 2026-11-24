@@ -21,3 +21,8 @@ ASSET_SILVER_SELIC = Asset(
     name="silver_selic_taxa",
     uri="postgres://postgres-dw/dw/silver/selic_taxa",
 )
+
+ASSET_GOLD_PTAX = Asset(
+    name="gold_ptax_metrics",
+    uri="postgres://postgres-dw/dw/gold/ptax_diaria",
+)

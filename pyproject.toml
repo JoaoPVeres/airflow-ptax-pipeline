@@ -22,3 +22,12 @@ airflow = "airflow:main"
 [tool.uv]
 package = false
 link-mode = "copy"
+
+[tool.pytest.ini_options]
+pythonpath = ["include"]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

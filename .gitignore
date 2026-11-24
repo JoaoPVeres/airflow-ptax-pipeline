@@ -8,6 +8,13 @@ wheels/
 
 # Virtual environments
 venv/
+.venv/
 .env
 logs/
 data/
+
+data/*
+!data/.gitkeep
+logs/*
+!logs/.gitkeep
+config/airflow.cfg

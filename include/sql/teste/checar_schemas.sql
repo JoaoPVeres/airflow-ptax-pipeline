@@ -1,3 +1,4 @@
+/*Consulta para visualizar os schemas do banco*/
 SELECT schema_name
 FROM information_schema.schemata
 WHERE schema_name = ANY(%(schemas)s)
